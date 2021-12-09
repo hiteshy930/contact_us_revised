@@ -16,10 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 public class DashboardServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestsDao requestDao = new RequestsDao();
-		requestDao.allRequestsList();
 		
-//		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/)
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/dashboard.jsp");
+		requestDispatcher.forward(request, response);
 	}
 
 	

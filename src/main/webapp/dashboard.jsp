@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ page import="java.sql.*" %>
- <%@ page import="com.company.DbConnection" %>  
+ <%@ page import="com.company.RequestsDao, com.company.Request, java.util.*" %>
+ 
     
 <!DOCTYPE html>
 <html>
@@ -104,7 +104,7 @@ tbody{
 </style>
 </head>
 <body>
-	<%-- <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %> --%>
+	 <%--  <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>  --%>
 	<% Cookie [] cookies = request.getCookies();
 		boolean loggedIn = false;
 		for(Cookie cookie : cookies){
@@ -116,7 +116,7 @@ tbody{
 		if(!loggedIn){
 			response.sendRedirect("../login/");
 		}
-	%>
+	%> 
 	
 	<button class="logout-btn"><a href="../logout">Logout</a></button>
 	<div class="container">
@@ -135,15 +135,17 @@ tbody{
 				 			</tr>
 				 		</thead>
 				 		<tbody>
-				 			<% Connection connection = DbConnection.getConnection();
-								Statement statement = connection.createStatement();
-								ResultSet result = statement.executeQuery("SELECT * FROM requests");
-								while(result.next()){ %>
+				 			<% 
+				 			RequestsDao requestDao = new RequestsDao();
+				 			List<Request> archivedRequestList = requestDao.getArchivedRequests();
+				 			
+								for(Request requestData : archivedRequestList){ %>
 				 			<tr>
-				 				<td><%= result.getString("name")%></td>
-				 				<td><%= result.getString("email")%></td>
-				 				<td><%= result.getString("message")%></td>
-				 				<td><input type="checkbox" <% if(result.getInt("archive")==1) {out.print("checked");} %>/></td>
+				 				<td><%= requestData.getName() %></td>
+				 				<td><%= requestData.getEmail() %></td>
+				 				<td><%= requestData.getMessage() %></td>
+				 				<td><input type="checkbox" <% if(requestData.getStatus()==true) {out.print("checked");} %>/></td>
+				 				
 				 			</tr>
 				 			<%} %>
 				 			
