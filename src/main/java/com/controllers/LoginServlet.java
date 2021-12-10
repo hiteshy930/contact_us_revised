@@ -5,13 +5,14 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.LoginDao;
 
+@SuppressWarnings("serial")
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
@@ -29,8 +30,10 @@ public class LoginServlet extends HttpServlet {
 		boolean isValidUser = new LoginDao().checkUserValidation(username, password);
 
 		if (isValidUser == true) {
-			Cookie cookie = new Cookie("id", username);
-			response.addCookie(cookie);
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			session.setAttribute("password", password);
+			
 			response.sendRedirect("./dashboard");
 		} else {
 			response.sendRedirect("./login");

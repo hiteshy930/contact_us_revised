@@ -2,8 +2,6 @@ package com.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.ContactUsDao;
 
+@SuppressWarnings("serial")
 @WebServlet({"/contactus", ""})
 public class ContactUsServlet extends HttpServlet {
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.RequestsDao;
 
+@SuppressWarnings("serial")
 @WebServlet("/dashboard")
 public class DashboardServlet extends HttpServlet {
 

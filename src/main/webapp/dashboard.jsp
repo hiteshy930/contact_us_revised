@@ -17,15 +17,8 @@
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	%>
 	<%
-	Cookie[] cookies = request.getCookies();
-	boolean loggedIn = false;
-	for (Cookie cookie : cookies) {
-		if (cookie.getName().equals("id")) {
-			loggedIn = true;
-		}
-	}
-
-	if (!loggedIn) {
+	
+	if (session.getAttribute("username") == null || session.getAttribute("password") == null) {
 		response.sendRedirect("./login");
 	}
 	%>
