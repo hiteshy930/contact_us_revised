@@ -1,8 +1,10 @@
-package com.company;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.models.DbConnection;
 
 public class LoginDao {
 
@@ -13,7 +15,7 @@ public class LoginDao {
 		try {
 			connection = DbConnection.getConnection();
 			PreparedStatement statementQuery = connection
-					.prepareStatement("select * from users where email=? and password=?");
+					.prepareStatement("select * from admin where email=? and password=?");
 			statementQuery.setString(1, username);
 			statementQuery.setString(2, password);
 

@@ -1,4 +1,4 @@
-package com.company;
+package com.models;
 
 public class Request {
 

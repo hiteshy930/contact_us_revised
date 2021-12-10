@@ -1,10 +1,13 @@
-package com.company;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
+
+import com.models.DbConnection;
+import com.models.Request;
 
 public class RequestsDao {
 
@@ -29,7 +32,6 @@ public class RequestsDao {
 
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return archivedRequestList;
@@ -56,7 +58,6 @@ public class RequestsDao {
 
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -1,8 +1,9 @@
-package com.company;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import com.company.DbConnection;
+
+import com.models.DbConnection;
 
 public class ContactUsDao {	
 	
