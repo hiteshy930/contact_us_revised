@@ -12,6 +12,7 @@ public class LoginDao {
 
 	public boolean checkUserValidation(String username, String password) {
 		boolean isInserted = false;
+
 		try {
 			connection = DbConnection.getConnection();
 			PreparedStatement statementQuery = connection

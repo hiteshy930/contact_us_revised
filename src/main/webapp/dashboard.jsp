@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page
-	import="com.dao.RequestsDao, com.models.Request, java.util.*"%>
+<%@ page import="com.dao.RequestsDao, com.models.Request, java.util.*"%>
 
 
 <!DOCTYPE html>
@@ -11,84 +10,7 @@
 <title>Dashboard</title>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Audiowide">
-<style type="text/css">
-* {
-	font-family: "Audiowide", sans-serif;
-}
-
-body {
-	/* background-image : linear-gradient(to bottom right, cyan, blue); */
-	background: rgb(0 0 0/ 5%);
-	height: 97.8vh;
-	background-repeat: no-repeat;
-	display: grid;
-	justify-content: space-evenly;
-	grid-auto-flow: column;
-	align-items: start;
-}
-
-.container {
-	width: 45vw;
-	height: max-content;
-	box-shadow: 0 0 11px rgba(0, 0, 0, 0.1);
-	margin-top: 10vh;
-	border-radius: 1vh;
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-}
-
-.container-header {
-	padding: 2vh 2vw;
-}
-
-.table {
-	width: 45vw;
-	background: white;
-	text-align: left;
-}
-
-tbody {
-	max-height: 45vh;
-	overflow: auto;
-}
-
-.table td, th {
-	padding: 0.5vh 0.5vw;
-	box-shadow: 0 0 5px rgb(0 0 0/ 15%);
-	font-family: serif;
-	font-size: 18px;
-}
-
-.button-div {
-	display: grid;
-	justify-content: end;
-	justify-items: stretch;
-	grid-auto-flow: column;
-	margin: 0.5vw;
-}
-
-.button-div, .logout-btn {
-	padding: 1vh;
-	background: rgb(0 0 0/ 15%);
-	border: none;
-	border-radius: 5px;
-	outline: none;
-	font-size: small;
-}
-
-.logout-btn {
-	position: absolute;
-	right: 3vh;
-	top: 3vh;
-}
-
-.logout-btn a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+<link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
 	<%
@@ -114,8 +36,7 @@ tbody {
 
 	<div class="container">
 		<div class="container-header">
-			<h4>Active requests</h4>
-
+			<h3>Active requests</h3>
 		</div>
 
 		<table class="table">
@@ -143,22 +64,20 @@ tbody {
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="archiveButton"
 								value="<%=requestData.getId()%>">Archive</button>
-						</form></td>
-
+						</form>
+					</td>
 				</tr>
 				<%
-				lineNumber++;
+				lineNumber = lineNumber + 1;
 				}
 				%>
-
 			</tbody>
 		</table>
-
 	</div>
+	
 	<div class="container">
 		<div class="container-header">
-			<h4>Archived requests</h4>
-
+			<h3>Archived requests</h3>
 		</div>
 
 		<table class="table">
@@ -186,16 +105,15 @@ tbody {
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="activeButton"
 								value="<%=requestData.getId()%>">Active</button>
-						</form></td>
+						</form>
+					</td>
 				</tr>
 				<%
-				serialNumber++;
+				serialNumber = serialNumber + 1;
 				}
 				%>
-
 			</tbody>
 		</table>
-
 	</div>
 </body>
 </html>

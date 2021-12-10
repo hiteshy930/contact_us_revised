@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.ContactUsDao;
 
-@WebServlet("/contactus")
+@WebServlet({"/contactus", ""})
 public class ContactUsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,20 +25,20 @@ public class ContactUsServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		PrintWriter out = response.getWriter();
-
+		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String message = request.getParameter("message");
+		
 		int result = new ContactUsDao().saveRequest(name, email, message);
-
+		
 		if (result != 0) {
-
-			out.println("<script> alert('Data Submitted Successfully'); window.location = \"./contactus\" </script>");
+			out.println("<script> alert('Data Submitted Successfully'); "
+					+ "window.location = \"./contactus\" </script>");
 		} else {
-			out.println(
-					"<script> alert('Data Submittion failed. Please retry'); window.location = \"./contactus\" </script>");
+			out.println("<script> alert('Data Submittion failed. Please retry'); "
+					+ "window.location = \"./contactus\" </script>");
 		}
 	}
 

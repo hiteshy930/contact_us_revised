@@ -2,8 +2,6 @@ package com.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
-import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,12 +23,13 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int numberOfRowsAffected = 0;
 		PrintWriter out = response.getWriter();
 
 		String archiveId = request.getParameter("archiveButton");
 		String activeId = request.getParameter("activeButton");
 
+		int numberOfRowsAffected = 0;
+		
 		if (archiveId != null) {
 			int id = Integer.parseInt(archiveId);
 			RequestsDao requestDao = new RequestsDao();
@@ -43,11 +42,10 @@ public class DashboardServlet extends HttpServlet {
 		}
 
 		if (numberOfRowsAffected != 0) {
-
-			out.println("<script> alert('Data Updated Successfully'); window.location = \"./dashboard\" </script>");
+			out.println("<script> window.location = \"./dashboard\" </script>");
 		} else {
-			out.println(
-					"<script> alert('Data Updation failed. Please retry'); window.location = \"./dashboard\" </script>");
+			out.println("<script> alert('Data Updation failed. Please retry'); "
+					+ "window.location = \"./dashboard\" </script>");
 		}
 	}
 

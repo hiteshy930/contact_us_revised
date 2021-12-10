@@ -48,10 +48,4 @@ public class Request {
 		this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return "Request [id=" + id + ", name=" + name + ", email=" + email + ", message=" + message + ", status="
-				+ status + "]";
-	}
-
 }
