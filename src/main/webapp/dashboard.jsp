@@ -54,6 +54,7 @@
 				RequestsDao activeRequestDao = new RequestsDao();
 				List<Request> activeRequestList = activeRequestDao.getActiveRequests();
 				int lineNumber = 1;
+				
 				for (Request requestData : activeRequestList) {
 				%>
 				<tr>
@@ -64,7 +65,8 @@
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="archiveButton"
 								value="<%=requestData.getId()%>">Archive</button>
-						</form></td>
+						</form>
+					</td>
 				</tr>
 				<%
 				lineNumber = lineNumber + 1;
@@ -104,7 +106,8 @@
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="activeButton"
 								value="<%=requestData.getId()%>">Active</button>
-						</form></td>
+						</form>
+					</td>
 				</tr>
 				<%
 				serialNumber = serialNumber + 1;

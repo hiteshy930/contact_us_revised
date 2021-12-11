@@ -48,6 +48,7 @@ public class RequestsDao {
 					executeQuery("SELECT * FROM requests where status = 1");
 			while (resultSet.next()) {
 				Request request = new Request();
+				
 				request.setId(resultSet.getInt("id"));
 				request.setName(resultSet.getString("name"));
 				request.setEmail(resultSet.getString("email"));
