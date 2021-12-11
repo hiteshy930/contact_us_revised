@@ -14,20 +14,20 @@
 </head>
 <body>
 	<%
-	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	%>
-	<%
-	Cookie[] cookies = request.getCookies();
-	boolean loggedIn = false;
-	for (Cookie cookie : cookies) {
-		if (cookie.getName().equals("id")) {
-			loggedIn = true;
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		
+		boolean loggedIn = false;
+		
+		Cookie[] cookies = request.getCookies();
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("id")) {
+				loggedIn = true;
+			}
 		}
-	}
-
-	if (!loggedIn) {
-		response.sendRedirect("./login");
-	}
+	
+		if (!loggedIn) {
+			response.sendRedirect("./login");
+		}
 	%>
 
 	<button class="logout-btn">
@@ -64,8 +64,7 @@
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="archiveButton"
 								value="<%=requestData.getId()%>">Archive</button>
-						</form>
-					</td>
+						</form></td>
 				</tr>
 				<%
 				lineNumber = lineNumber + 1;
@@ -74,7 +73,7 @@
 			</tbody>
 		</table>
 	</div>
-	
+
 	<div class="container">
 		<div class="container-header">
 			<h3>Archived requests</h3>
@@ -105,8 +104,7 @@
 					<td><form action="./dashboard" method="post">
 							<button class="button-div" name="activeButton"
 								value="<%=requestData.getId()%>">Active</button>
-						</form>
-					</td>
+						</form></td>
 				</tr>
 				<%
 				serialNumber = serialNumber + 1;

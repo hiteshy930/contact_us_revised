@@ -27,18 +27,19 @@ public class DashboardServlet extends HttpServlet {
 
 		String archiveId = request.getParameter("archiveButton");
 		String activeId = request.getParameter("activeButton");
-
+		
+		int id = 0;
 		int numberOfRowsAffected = 0;
 		
 		if (archiveId != null) {
-			int id = Integer.parseInt(archiveId);
+			id = Integer.parseInt(archiveId);
 			RequestsDao requestDao = new RequestsDao();
 			numberOfRowsAffected = requestDao.makeRequestArchived(id);
 
 		} else {
-			int num = Integer.parseInt(activeId);
+			id = Integer.parseInt(activeId);
 			RequestsDao requestDao = new RequestsDao();
-			numberOfRowsAffected = requestDao.makeRequestActive(num);
+			numberOfRowsAffected = requestDao.makeRequestActive(id);
 		}
 
 		if (numberOfRowsAffected != 0) {

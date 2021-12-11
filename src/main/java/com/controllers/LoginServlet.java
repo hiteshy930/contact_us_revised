@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.LoginDao;
 
+@SuppressWarnings("serial")
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
@@ -31,6 +32,7 @@ public class LoginServlet extends HttpServlet {
 		if (isValidUser == true) {
 			Cookie cookie = new Cookie("id", username);
 			response.addCookie(cookie);
+			
 			response.sendRedirect("./dashboard");
 		} else {
 			response.sendRedirect("./login");

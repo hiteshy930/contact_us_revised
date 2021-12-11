@@ -30,7 +30,7 @@
 				</div>
 				<div class="form-input">
 					<label for="message" class="form-label">Message<sup>*</sup></label>
-					<textarea type="text" rows="5" cols="30" name="message" required></textarea>
+					<textarea rows="5" cols="30" name="message" required></textarea>
 				</div>
 				<div class="form-input">
 					<input type="submit" name="SUBMIT" />
