@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Contact us</title>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Audiowide">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 <link rel="stylesheet" href="./css/contactus.css">
-
 </head>
 <body>
 	<div class="container">
@@ -16,7 +15,7 @@
 			<h1>Contact Us</h1>
 			<p>Please fill this form in a decent manner</p>
 		</div>
-		
+
 		<div class="form">
 			<form action="./contactus" method="post">
 				<div class="form-input">

@@ -46,7 +46,7 @@
 					<th>Name</th>
 					<th>Email</th>
 					<th>Message</th>
-					<th>Active</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -86,7 +86,7 @@
 					<th>Name</th>
 					<th>Email</th>
 					<th>Message</th>
-					<th>Archive</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
