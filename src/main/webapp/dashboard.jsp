@@ -14,20 +14,13 @@
 </head>
 <body>
 	<%
-		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-		
-		boolean loggedIn = false;
-		
-		Cookie[] cookies = request.getCookies();
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("id")) {
-				loggedIn = true;
-			}
-		}
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	%>
+	<%
 	
-		if (!loggedIn) {
-			response.sendRedirect("./login");
-		}
+	if (session.getAttribute("username") == null || session.getAttribute("password") == null) {
+		response.sendRedirect("./login");
+	}
 	%>
 
 	<button class="logout-btn">
