@@ -11,6 +11,12 @@ import com.models.Request;
 
 public class RequestsDao {
 
+	private static final String STATUS = "status";
+	private static final String MESSAGE = "message";
+	private static final String EMAIL = "email";
+	private static final String NAME = "name";
+	private static final String ID = "id";
+
 	public List<Request> getArchivedRequests() {
 		List<Request> archivedRequestList = new ArrayList<>();
 		Connection connection;
@@ -23,11 +29,11 @@ public class RequestsDao {
 
 			while (resultSet.next()) {
 				Request request = new Request();
-				request.setId(resultSet.getInt("id"));
-				request.setName(resultSet.getString("name"));
-				request.setEmail(resultSet.getString("email"));
-				request.setMessage(resultSet.getString("message"));
-				request.setStatus(resultSet.getBoolean("status"));
+				request.setId(resultSet.getInt(ID));
+				request.setName(resultSet.getString(NAME));
+				request.setEmail(resultSet.getString(EMAIL));
+				request.setMessage(resultSet.getString(MESSAGE));
+				request.setStatus(resultSet.getBoolean(STATUS));
 
 				archivedRequestList.add(request);
 			}
@@ -49,11 +55,11 @@ public class RequestsDao {
 			while (resultSet.next()) {
 				Request request = new Request();
 				
-				request.setId(resultSet.getInt("id"));
-				request.setName(resultSet.getString("name"));
-				request.setEmail(resultSet.getString("email"));
-				request.setMessage(resultSet.getString("message"));
-				request.setStatus(resultSet.getBoolean("status"));
+				request.setId(resultSet.getInt(ID));
+				request.setName(resultSet.getString(NAME));
+				request.setEmail(resultSet.getString(EMAIL));
+				request.setMessage(resultSet.getString(MESSAGE));
+				request.setStatus(resultSet.getBoolean(STATUS));
 
 				activeRequestList.add(request);
 			}
