@@ -3,8 +3,6 @@ package com.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import com.models.DbConnection;
-
 public class ContactUsDao {
 
 	public int saveRequest(String name, String email, String message) {

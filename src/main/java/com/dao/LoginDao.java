@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.models.DbConnection;
-
 public class LoginDao {
 
 	Connection connection = null;

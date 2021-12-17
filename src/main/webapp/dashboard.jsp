@@ -44,8 +44,8 @@
 			</thead>
 			<tbody>
 				<%
-				RequestsDao activeRequestDao = new RequestsDao();
-				List<Request> activeRequestList = activeRequestDao.getActiveRequests();
+				
+				List<Request> activeRequestList = (List<Request>)request.getAttribute("activeRequests");
 				int lineNumber = 1;
 				
 				for (Request requestData : activeRequestList) {
@@ -86,8 +86,7 @@
 			</thead>
 			<tbody>
 				<%
-				RequestsDao archivedRequestDao = new RequestsDao();
-				List<Request> archivedRequestList = archivedRequestDao.getArchivedRequests();
+				List<Request> archivedRequestList = (List<Request>)request.getAttribute("archivedRequests");
 				int serialNumber = 1;
 				for (Request requestData : archivedRequestList) {
 				%>

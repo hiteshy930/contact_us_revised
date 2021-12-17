@@ -2,6 +2,8 @@ package com.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.RequestsDao;
+import com.models.Request;
 
 @SuppressWarnings("serial")
 @WebServlet("/dashboard")
@@ -18,6 +21,14 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		RequestsDao requestDao = new RequestsDao();
+		
+		List<Request> activeRequests = requestDao.getActiveRequests();
+		request.setAttribute("activeRequests", activeRequests);
+		
+		List<Request> archivedRequests = requestDao.getArchivedRequests();
+		request.setAttribute("archivedRequests", archivedRequests);
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/dashboard.jsp");
 		requestDispatcher.forward(request, response);
 	}

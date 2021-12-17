@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
 
-import com.models.DbConnection;
 import com.models.Request;
 
 public class RequestsDao {
